@@ -8,7 +8,10 @@ import {
 
 const UpdateItemQuantity = ({ pizzaId }) => {
   const dispatch = useDispatch();
+  
   const currentQuantity = useSelector(getCurrentQuantityById(pizzaId));
+  console.log(currentQuantity);
+
   return (
     <div className="flex items-center gap-1 md:gap-3">
       <Button
@@ -17,7 +20,7 @@ const UpdateItemQuantity = ({ pizzaId }) => {
       >
         -
       </Button>
-      <span className="text-sm font-medium ">{currentQuantity}</span>
+      <span className="text-sm font-medium">{currentQuantity}</span>
       <Button
         type="round"
         onClick={() => dispatch(increaseItemQuantity(pizzaId))}

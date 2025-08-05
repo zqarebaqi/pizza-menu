@@ -8,9 +8,10 @@ import {
 
 const UpdateItemQuantity = ({ pizzaId }) => {
   const dispatch = useDispatch();
-  
+
   const currentQuantity = useSelector(getCurrentQuantityById(pizzaId));
-  console.log(currentQuantity);
+
+  // console.log(currentQuantity);
 
   return (
     <div className="flex items-center gap-1 md:gap-3">

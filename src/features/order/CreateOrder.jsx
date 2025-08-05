@@ -60,7 +60,6 @@ function CreateOrder() {
 
   const formError = useActionData();
 
-
   const dispatch = useDispatch();
 
   // const cart = fakeCart;
@@ -120,7 +119,7 @@ function CreateOrder() {
           </div>
 
           {!position.latitude && !position.longtitude && (
-            <span className="absolute right-[3px] top-[3px] z-50 sm:right-[5px] sm:top-[5px]">
+            <span className="absolute right-[2px] top-[33.5px] z-50 sm:top-[4px] sm:right-1">
               <Button
                 disabled={isLoadingAddress}
                 type="small"
@@ -161,11 +160,13 @@ function CreateOrder() {
             }
           />
 
-          <Button type="primary" disabled={isSubmitting || isLoadingAddress}>
-            {isSubmitting
-              ? "placing order..."
-              : `Order now for ${formatCurrency(totalPrice)}`}
-          </Button>
+          <div className="flex justify-center sm:justify-start">
+            <Button type="primary" disabled={isSubmitting || isLoadingAddress}>
+              {isSubmitting
+                ? "placing order..."
+                : `Order now for ${formatCurrency(totalPrice)}`}
+            </Button>
+          </div>
         </div>
       </Form>
     </div>
@@ -183,7 +184,6 @@ export async function action({ request }) {
     cart: JSON.parse(data.cart),
     priority: data.priority === "true",
   };
-
 
   const errors = {};
   if (!isValidPhone(order.phone))

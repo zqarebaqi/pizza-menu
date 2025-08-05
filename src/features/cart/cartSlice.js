@@ -51,3 +51,7 @@ export const getCart = (state) => state.cart.cart;
 export const getCurrentQuantityById = (id) => (state) => {
   return state.cart.cart.find((item) => item.pizzaId === id)?.quantity ?? 0;
 };
+
+// const getQuantity = getCurrentQuantityById(5);
+// const quantity = getQuantity(state);
+
